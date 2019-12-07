@@ -30,10 +30,10 @@ class LOOKOptimization:
 
     def arrangeLOOK(self,curr,seq,pre):
         temp=[]
-        direction=""
+        direction="" #declare variable direction
         # self.dp.getCurrent()
         # pre=self.dp.getPrevious()
-        if curr>pre:
+        if curr>pre: #if current 
             direction="up"
         if curr<pre:
             direction="down"
