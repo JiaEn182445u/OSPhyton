@@ -33,29 +33,29 @@ class LOOKOptimization:
         direction="" #declare variable direction
         # self.dp.getCurrent()
         # pre=self.dp.getPrevious()
-        if curr>pre: #if current 
+        if curr>pre: #if current is more than previous, set direction as going "up"
             direction="up"
-        if curr<pre:
+        if curr<pre: #if current is less than previous, set direction as going "down"
             direction="down"
-        seq.append(curr)
+        seq.append(curr) #append/add in the current disk value into the sequence, as it is not in there yet
         #order = str(self.dp.getCurrent())+","+str(temp)[1:-1]
-        seq.sort()
-        currentIndex=seq.index(curr)
+        seq.sort() #sort the sequence, in ascending order
+        currentIndex=seq.index(curr) #get the index of current in the sorted sequence 
 
-        if direction=="up":
-            for i in seq[currentIndex:]:
+        if direction=="up": #if direction is going up
+            for i in seq[currentIndex:]: #for loop to get the values in sequence with index from currentIndex to the end of the sequence
             #for i in range(currentIndex+1):
-                temp.append(i)
-            for i in seq[currentIndex-1::-1]:
+                temp.append(i) #append into temp while the for loop loops
+            for i in seq[currentIndex-1::-1]: #for loop to get the values in sequence with index from the start of the sequence to the value before currentIndex in descending order
             #for i in range(currentIndex+1):
-                temp.append(i)
-        if direction=="down":
-            for i in seq[currentIndex::-1]:
+                temp.append(i) #append into temp while the for loop loops
+        if direction=="down": #if direction is going down
+            for i in seq[currentIndex::-1]: #for loop to get the values in sequence with index from the start of the sequence to currentIndex in descending order
             #for i in range(currentIndex+1):
-                temp.append(i)
-            for i in seq[currentIndex+1:]:
+                temp.append(i) #append into temp while the for loop loops
+            for i in seq[currentIndex+1:]: #for loop to get the values of the sequence with index from the value after current index to the end of the sequence
             #for i in range(currentIndex+1):
-                temp.append(i)
+                temp.append(i) #append into temp while the for loop loops
         return temp
 
     def generateLOOK(self):
