@@ -7,25 +7,45 @@ class CLOOKOptimization:
         self.generateAnalysis()
 
     def printSequence(self, name, location):
+        # current start point
         curr = 0
+        # previous point
         prev = self.dp.getCurrent()
+        # assigned variable for the answer after calculation
         total = 0
+        # assigned variable to place long working
         working1 = ""
+        # assigned variable to place shortened working
         working2 = ""
+        # assigned variable to show the order for sstf
         order = ""
+        # location is the sorted sequence
         for i in location:
+            #  curr holds the same value as i
             curr = i
+            # calculation where prev no. - curr no. is added tothe total's previous value to obtain its new value
             total += abs(prev - curr)
+            # the working of sstf
             working1 += "|" + str(prev) + "-" + str(curr) + "|+"
+            # shortened working of sstf
             working2 += str(abs(prev - curr)) + "+"
+            # setting i to prev as the for loop starts on the next value
             prev = i
+
+        # removing extra '+' in working1 & working2
         working1 = working1[0:-1]
         working2 = working2[0:-1]
-        order = str( str(location)[1:-1])
+        # adding current into location
+        order = str(self.dp.getCurrent()) + ", " + str(location)[1:-1]
+        # name "sstf" for indication
         print(name + "\n====")
+        # print of order of sstf
         print("Order of Access: " + order)
+        # printing of the detailed working, working1
         print("Total distance: " + "\n" + working1 + "\n")
+        # printing of the shortened working, working2
         print("= " + working2 + "\n")
+        # printing of result after calculation
         print("= " + str(total) + "\n")
 
 
