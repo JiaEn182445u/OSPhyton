@@ -1,5 +1,5 @@
 import configparser
-class FCFSParameter:
+class SSTFParameter:
     def __init__(self, filename):
      Config = configparser.ConfigParser()
      Config.read(str(filename))
